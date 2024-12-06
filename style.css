@@ -1,0 +1,209 @@
+/* Base styles for all themes */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s ease;
+}
+
+.game-container {
+    margin: 20px auto;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px rgba(255, 64, 129, 0.8);
+}
+
+/* Dark Theme */
+body.dark {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+body.dark .game-container {
+    background: #1e1e1e;
+}
+
+body.dark .status, body.dark .scoreboard {
+    color: #ff4081; /* Shining pink */
+}
+
+body.dark .cell {
+    background-color: #2c2f38;
+}
+
+body.dark .cell.taken {
+    background-color: #383c45;
+}
+
+body.dark button {
+    background-color: #ff4081;
+}
+
+body.dark button:hover {
+    background-color: #ff1d56;
+}
+
+/* Light Theme */
+body.light {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+body.light .game-container {
+    background: #fff;
+}
+
+body.light .status, body.light .scoreboard {
+    color: #1e88e5; /* Shining Blue */
+}
+
+body.light .cell {
+    background-color: #ececec;
+}
+
+body.light .cell.taken {
+    background-color: #d1d1d1;
+}
+
+body.light button {
+    background-color: #1e88e5;
+}
+
+body.light button:hover {
+    background-color: #1565c0;
+}
+
+/* Neon Theme */
+body.neon {
+    background-color: #222;
+    color: #ff00ff;
+}
+
+body.neon .game-container {
+    background: #333;
+}
+
+body.neon .status, body.neon .scoreboard {
+    color: #00ffcc; /* Shining Neon Green */
+}
+
+body.neon .cell {
+    background-color: #444;
+}
+
+body.neon .cell.taken {
+    background-color: #555;
+}
+
+body.neon button {
+    background-color: #ff00ff;
+}
+
+body.neon button:hover {
+    background-color: #cc00cc;
+}
+
+/* Other styles remain the same... */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c2f38;
+    font-size: 2.5em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cell:hover {
+    background-color: #3d434d;
+}
+
+.cell.taken {
+    pointer-events: none;
+    background-color: #383c45;
+}
+
+.status {
+    margin: 15px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ff4081; /* Shining pink */
+    text-shadow: 0 0 10px rgba(255, 64, 129, 0.8);
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border: none;
+    background-color: #ff4081; /* Shining pink */
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-shadow: 0 0 10px rgba(255, 64, 129, 0.8);
+}
+
+button:hover {
+    background-color: #ff1d56; /* Darker pink */
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.8);
+}
+
+.theme-selector {
+    margin-top: 15px;
+    font-size: 1em;
+    color: #ff4081;
+}
+
+@media (max-width: 400px) {
+    .cell {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Win Blast Animation */
+.win-blast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    font-weight: bold;
+    color: #ff4081;
+    text-shadow: 0 0 15px rgba(255, 64, 129, 1), 0 0 30px rgba(255, 64, 129, 0.8);
+    animation: blast 3s ease-out;
+}
+
+@keyframes blast {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
